@@ -13,7 +13,7 @@ app.use(cors());
 
 //use JWT auth to seure the api
 
-app.use(jwt());
+// app.use(jwt());
 
 //api routes
 app.use('/users',require('./users/users.controller'));

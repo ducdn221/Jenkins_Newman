@@ -6,6 +6,70 @@
 	},
 	"item": [
 		{
+			"name": "/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1d95afc-ab0d-4a06-8a64-15234023d779",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test('status to be 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('should be a json response', () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test('response to be fast', () => {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"response should be okay to process\", function () { ",
+							"    pm.response.to.not.be.error; ",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							"",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"test\",\n\t\"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users/authenticate",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/",
 			"event": [
 				{
@@ -166,67 +230,6 @@
 							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
 							"disabled": true
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "f1d95afc-ab0d-4a06-8a64-15234023d779",
-						"exec": [
-							"pm.test('status to be 200', function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test('should be a json response', () => {",
-							"    pm.response.to.be.json;",
-							"});",
-							"",
-							"pm.test('response to be fast', () => {",
-							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-							"});",
-							"",
-							"pm.test(\"response should be okay to process\", function () { ",
-							"    pm.response.to.not.be.error; ",
-							"    pm.response.to.not.have.jsonBody(\"error\"); ",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"username\": \"test\",\n\t\"password\": \"test\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{host}}/users/authenticate",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"users",
-						"authenticate"
 					]
 				}
 			},
