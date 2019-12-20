@@ -1,5 +1,5 @@
 node {
-    stage('Postman CI demo'){
+    stage('Postman CI'){
         git 'https://github.com/ducdn221/Jenkins_Newman.git'
         
     }
