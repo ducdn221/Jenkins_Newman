@@ -132,16 +132,7 @@
 							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-							"});",
-							"",
-							"pm.test(\"should not be able to access this resource\", function () {",
-							"    pm.response.to.have.status(403);",
-							"});",
-							"",
-							"pm.test(\"should not be able to access other users locations\", function () {",
-							"    pm.response.to.have.status(401);",
-							"});",
-							""
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -153,8 +144,7 @@
 					{
 						"key": "Authorization",
 						"value": "Bearer {{token}}",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					}
 				],
 				"url": {
@@ -187,14 +177,6 @@
 							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-							"});",
-							"",
-							"pm.test(\"should not be able to access this resource\", function () {",
-							"    pm.response.to.have.status(403);",
-							"});",
-							"",
-							"pm.test(\"should not be able to access other users locations\", function () {",
-							"    pm.response.to.have.status(401);",
 							"});",
 							""
 						],
