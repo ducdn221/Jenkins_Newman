@@ -26,9 +26,7 @@
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 							"});",
 							"",
-							"pm.test(\"Username or Password is incorrect\", function () {",
-							"    pm.response.to.have.status(400).to.be.false;",
-							"});",
+							"",
 							"",
 							"",
 							"pm.environment.set(\"token\", jsonData.token);"
@@ -49,7 +47,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"user\",\n\t\"password\": \"user\"\n}",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
