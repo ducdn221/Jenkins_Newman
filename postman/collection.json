@@ -89,10 +89,6 @@
 							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-							"});",
-							"",
-							"pm.test(\"Unauthorized\", function () {",
-							"    pm.response.to.have.status(401).to.be.false;",
 							"});"
 						],
 						"type": "text/javascript"
@@ -144,9 +140,7 @@
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 							"});",
 							"",
-							"pm.test(\"Unauthorized\", function () {",
-							"    pm.response.to.have.status(401).to.be.false;",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -196,10 +190,7 @@
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 							"});",
-							"",
-							"pm.test(\"Unauthorized\", function () {",
-							"    pm.response.to.have.status(401).to.be.false;",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
