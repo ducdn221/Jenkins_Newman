@@ -1,6 +1,4 @@
 node {
-    echo 'Pulling...' + env.BRANCH_NAME
-        checkout scm
     stage('Postman CI'){
         git 'https://github.com/ducdn221/Jenkins_Newman.git'
         
