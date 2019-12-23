@@ -4,9 +4,9 @@ node {
         
     }
     stage('Install Node Dependencies') {
-        sh 'npm install'
+        bat 'npm install'
     }
     stage('Run Tests') {
-        sh 'npm run test-post-deploy -d env-dev.json'
+        bat 'npm run test-post-deploy -d env-dev.json'
     }
 }

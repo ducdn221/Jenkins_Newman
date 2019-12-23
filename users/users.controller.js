@@ -7,7 +7,7 @@ const Role = require("_helpers/role");
 //routes
 router.post("/authenticate", authenticate);
 router.get('/', authorize(Role.Admin), getAll); // admin only
-router.get('/:id', authorize(Role.Admin), getById);  // all authenticated users
+router.get('/:id', authorize(Role.Admin), getById);
 
 module.exports = router;
 
@@ -30,14 +30,6 @@ function getAll(req, res, next) {
 }
 
 function getById(req, res, next) {
-    const currentUser = req.user;
-    const id = parseInt(req.params.id);
-
-    // only allow admins to access other user records
-    if (id !== currentUser.sub && currentUser.role !== Role.Admin) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
-
     userService.getById(req.params.id)
         .then(user => user ? res.json(user) : res.sendStatus(404))
         .catch(err => next(err));

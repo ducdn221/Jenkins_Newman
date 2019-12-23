@@ -3,8 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const addRequestId = require("express-request-id");
 const cors = require("cors");
-const jwt = require("_helpers/jwt");
 const errorHandler = require("_helpers/error-handler");
+const authorize = require("_helpers/authorize")
+const Role = require("_helpers/role");
 
 const app = express();
 app.use(addRequestId());
@@ -13,24 +14,22 @@ app.use(cors());
 
 //use JWT auth to seure the api
 
-// app.use(jwt());
-
 //api routes
 app.use('/users',require('./users/users.controller'));
 
 //global error handler
 app.use(errorHandler);
 
-app.get("/", (req, res) => {
+app.get("/",authorize([Role.Admin,Role.User]), (req, res) => {
   res.json({ message: "hello world", requestId: req.id });
 });
 
-app.get("/foo", ({ id, query }, res, next) => {
+app.get("/foo",authorize([Role.Admin,Role.User]), ({ id, query }, res, next) => {
   const { bar } = query;
   res.json({ message: "successfull", bar: `${bar}`, requestId: id });
 });
 
-app.post("/foo", ({ id, body }, res, next) => {
+app.post("/foo",authorize([Role.Admin,Role.User]), ({ id, body }, res, next) => {
   const { bar } = body;
 
   if (typeof bar === "undefined") {

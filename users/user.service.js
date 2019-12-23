@@ -2,15 +2,6 @@ const config = require("config.json");
 const jwt = require("jsonwebtoken");
 const Role = require("_helpers/role");
 
-// const users = [
-//   {
-//     id: 1,
-//     username: "test",
-//     password: "test",
-//     firstName: "Test",
-//     lastName: "User"
-//   }
-// ];
 const users = [
   {
     id: 1,
