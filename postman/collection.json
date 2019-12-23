@@ -83,10 +83,6 @@
 							"    pm.response.to.be.json;",
 							"});",
 							"",
-							"pm.test('response body to have field `message`', ()=>{",
-							"    pm.expect(pm.response.json()).to.have.all.keys('message','requestId');",
-							"});",
-							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 							"});"
