@@ -7,6 +7,6 @@ node {
         bat 'npm install'
     }
     stage('Run Tests') {
-        bat 'npm run test-post-deploy -d env-dev.json'
+        bat 'npm run test-api-newman'
     }
 }
