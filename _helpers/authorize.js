@@ -4,11 +4,9 @@ const { secret } = require("config.json");
 module.exports = authorize;
 
 function authorize(roles = []) {
-    console.log(roles);
   if (typeof roles === "string") {
     roles = [roles];
   }
-  console.log(roles);
 
   return [
     //authenticate JWT token and attact user to request object( req.user)
