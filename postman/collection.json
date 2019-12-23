@@ -26,10 +26,10 @@
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 							"});",
 							"",
-							"pm.test(\"response should be okay to process\", function () { ",
-							"    pm.response.to.not.be.error; ",
-							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"pm.test(\"Username or Password is incorrect\", function () {",
+							"    pm.response.to.have.status(400).to.be.false;",
 							"});",
+							"",
 							"",
 							"pm.environment.set(\"token\", jsonData.token);"
 						],
@@ -49,7 +49,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"test\",\n\t\"password\": \"test\"\n}",
+					"raw": "{\n\t\"username\": \"user\",\n\t\"password\": \"user\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,6 +91,10 @@
 							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Unauthorized\", function () {",
+							"    pm.response.to.have.status(401).to.be.false;",
 							"});"
 						],
 						"type": "text/javascript"
@@ -107,9 +111,12 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}",
+					"raw": "{{host}}/users",
 					"host": [
 						"{{host}}"
+					],
+					"path": [
+						"users"
 					]
 				}
 			},
@@ -137,6 +144,10 @@
 							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Unauthorized\", function () {",
+							"    pm.response.to.have.status(401).to.be.false;",
 							"});"
 						],
 						"type": "text/javascript"
@@ -186,6 +197,10 @@
 							"",
 							"pm.test('response to be fast', () => {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Unauthorized\", function () {",
+							"    pm.response.to.have.status(401).to.be.false;",
 							"});"
 						],
 						"type": "text/javascript"
