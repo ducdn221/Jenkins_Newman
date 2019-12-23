@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "test-post-deploy": "newman run ./postman/collection.json -e ./postman/env.json --disable-unicode --export-environment ./postman/env.json"
+    "test-api-newman": "newman run ./postman/collection.json -e ./postman/env.json --disable-unicode --export-environment ./postman/env.json -d env-dev.json",
+    "test-api": "npm start & npm run test-api-newman"
   },
   "author": "",
   "license": "ISC",
