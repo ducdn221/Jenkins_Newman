@@ -6,9 +6,8 @@ def getEnvFromBranch(branch) {
  }
 }
 node {
-   
+   agent any
     environment {
-     
     targetedEnv = getEnvFromBranch(env.param1)
   }
   
@@ -19,7 +18,7 @@ node {
         bat 'npm install'
     }
     stage('Run Tests') {
-      echo "These are my parameters: ${env.param1}"
+      echo "These are my parameters: ${env.targetedEnv} ${targetedEnv}"
       bat "npm run test-api-newman1 '${env.param1}'"
     }
 }
