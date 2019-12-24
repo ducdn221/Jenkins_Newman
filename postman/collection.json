@@ -401,6 +401,71 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "status-400",
+			"item": [
+				{
+					"name": "/login fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1d95afc-ab0d-4a06-8a64-15234023d779",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.test('should be a json response', () => {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test('response to be fast', () => {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});",
+									"",
+									"pm.test(\"should not be able to access username or password incorrect\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin1\",\n\t\"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/authenticate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "/login",
 			"event": [
 				{
