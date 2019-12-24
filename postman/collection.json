@@ -380,7 +380,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/foo?Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
+							"raw": "{{host}}/foo?",
 							"host": [
 								"{{host}}"
 							],
@@ -390,7 +390,8 @@
 							"query": [
 								{
 									"key": "Authorization",
-									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess"
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
+									"disabled": true
 								}
 							]
 						}
