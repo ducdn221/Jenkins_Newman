@@ -6,6 +6,407 @@
 	},
 	"item": [
 		{
+			"name": "status-401",
+			"item": [
+				{
+					"name": "/login fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1d95afc-ab0d-4a06-8a64-15234023d779",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.test('should be a json response', () => {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test('response to be fast', () => {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});",
+									"",
+									"pm.test(\"should not be able to access username or password incorrect\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/authenticate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ status 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32c8a31e-c57f-4634-8bf8-a9af07f5a732",
+								"exec": [
+									"pm.test(\"should not be able to access other users locations\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/foo status 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5ee4cab4-3be6-4158-9355-8ad1adc678ae",
+								"exec": [
+									"pm.test(\"should not be able to access other users locations\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/foo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"foo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/foo status 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0e52130-ba56-4c8c-96ec-4594e52d04ac",
+								"exec": [
+									"pm.test(\"should not be able to access other users locations\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bar\": \"bears\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/foo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"foo"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "status-403",
+			"item": [
+				{
+					"name": "/login user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1d95afc-ab0d-4a06-8a64-15234023d779",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.test('should be a json response', () => {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test('response to be fast', () => {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});",
+									"",
+									"pm.test(\"should not be able to access username or password incorrect\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"user\",\n\t\"password\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/authenticate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ status 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32c8a31e-c57f-4634-8bf8-a9af07f5a732",
+								"exec": [
+									"pm.test(\"should not be able to access this resource\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/foo status 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5ee4cab4-3be6-4158-9355-8ad1adc678ae",
+								"exec": [
+									"pm.test(\"should not be able to access this resource\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/foo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"foo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/foo status 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0e52130-ba56-4c8c-96ec-4594e52d04ac",
+								"exec": [
+									"pm.test(\"should not be able to access this resource\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bar\": \"bears\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/foo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"foo"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "/login",
 			"event": [
 				{
