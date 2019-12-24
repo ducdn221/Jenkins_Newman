@@ -1,5 +1,4 @@
 node {
-    echo ${env.BRANCH}
     stage('Postman CI'){
         git 'https://github.com/ducdn221/Jenkins_Newman.git'
         
