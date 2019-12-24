@@ -1,16 +1,17 @@
 def getEnvFromBranch(branch) {
   if (branch == 'value1') {
-    return 'production'
+    return '-d env-dev.json'
   } else {
-    return 'staging'
+    return '-d env-prod.json'
  }
 }
 node {
-   echo "These are my parameters: '${env.param1}'"
+   
     environment {
      
     targetedEnv = getEnvFromBranch(env.param1)
   }
+  echo "These are my parameters: '${env.targetedEnv}'"
     stage('Postman CI'){
         git 'https://github.com/ducdn221/Jenkins_Newman.git'       
     }
@@ -18,6 +19,6 @@ node {
         bat 'npm install'
     }
     stage('Run Tests') {
-        bat 'npm run test-api-newman'
+        bat 'npm run test-api-newman ${env.targetedEnv}'
     }
 }
