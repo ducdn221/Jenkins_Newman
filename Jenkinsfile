@@ -6,7 +6,6 @@ def getEnvFromBranch(branch) {
  }
 }
 node {
-   agent any
     environment {
     targetedEnv = getEnvFromBranch(env.param1)
   }
