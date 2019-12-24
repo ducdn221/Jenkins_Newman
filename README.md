@@ -11,6 +11,7 @@ Automation test API by Jenkins
   3.2 Architecture Enviroment:
 ![Capture](https://user-images.githubusercontent.com/49127076/71408503-1729d980-2671-11ea-9b5a-37b7872961c0.PNG)
 
-4. Create Test Case and Run collection for API: https://dev.to/scampiuk/using-postman-s-cli-tool-for-api-testing-newman-5fn1
+4. Create Test Case for API: 
+![Capture](https://user-images.githubusercontent.com/49127076/71409066-d6cb5b00-2672-11ea-86f6-572843965004.PNG)
 
 
