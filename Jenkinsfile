@@ -11,7 +11,7 @@ node {
      
     targetedEnv = getEnvFromBranch(env.param1)
   }
-  echo "These are my parameters: '${env.targetedEnv}'"
+  
     stage('Postman CI'){
         git 'https://github.com/ducdn221/Jenkins_Newman.git'       
     }
@@ -19,6 +19,7 @@ node {
         bat 'npm install'
     }
     stage('Run Tests') {
+      echo "These are my parameters: '${env.targetedEnv}'"
         bat 'npm run test-api-newman1 '${env.targetedEnv}''
     }
 }
