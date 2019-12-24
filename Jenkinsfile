@@ -6,8 +6,9 @@ def getEnvFromBranch(branch) {
  }
 }
 node {
+   echo "These are my parameters: '${env.param1}'"
     environment {
-      echo "These are my parameters: '${env.param1}'"
+     
     targetedEnv = getEnvFromBranch(env.param1)
   }
     stage('Postman CI'){
