@@ -7,6 +7,7 @@ def getEnvFromBranch(branch) {
 }
 node {
     environment {
+     echo "These are my parameters: env.param1"
     targetedEnv = getEnvFromBranch(env.param1)
   }
   
@@ -18,6 +19,6 @@ node {
     }
     stage('Run Tests') {
       echo "These are my parameters: ${env.targetedEnv}"
-      bat "npm run test-api-newman1 + '${env.param1}'"
+      bat "npm run test-api-newman1 " + "'${env.param1}'"
     }
 }
