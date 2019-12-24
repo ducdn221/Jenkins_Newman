@@ -19,6 +19,6 @@ node {
     }
     stage('Run Tests') {
       echo "These are my parameters: ${env.targetedEnv}"
-      bat "npm run test-api-newman1 " + "'${env.param1}'"
+      bat "npm run test-api-newman1-${env.param1}"
     }
 }
