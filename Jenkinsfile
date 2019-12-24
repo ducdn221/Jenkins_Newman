@@ -19,6 +19,6 @@ node {
         bat 'npm install'
     }
     stage('Run Tests') {
-        bat 'npm run test-api-newman ${env.targetedEnv}'
+        bat 'npm run test-api-newman1 ${env.targetedEnv}'
     }
 }
