@@ -324,8 +324,7 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer {{token}}",
-								"disabled": true
+								"value": "Bearer {{token}}"
 							}
 						],
 						"url": {
@@ -381,7 +380,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/foo",
+							"raw": "{{host}}/foo?Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
 							"host": [
 								"{{host}}"
 							],
@@ -391,8 +390,7 @@
 							"query": [
 								{
 									"key": "Authorization",
-									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess",
-									"disabled": true
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTU3NjgxMjE4M30.2JaWaje_hAXFarupreleyd2ojtrVrLHwds0gOD_qess"
 								}
 							]
 						}
