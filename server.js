@@ -20,16 +20,16 @@ app.use('/users',require('./users/users.controller'));
 //global error handler
 app.use(errorHandler);
 
-app.get("/",authorize([Role.Admin,Role.User]), (req, res) => {
+app.get("/",authorize([Role.Admin]), (req, res) => {
   res.json({ message: "hello world", requestId: req.id });
 });
 
-app.get("/foo",authorize([Role.Admin,Role.User]), ({ id, query }, res, next) => {
+app.get("/foo",authorize([Role.Admin]), ({ id, query }, res, next) => {
   const { bar } = query;
   res.json({ message: "successfull", bar: `${bar}`, requestId: id });
 });
 
-app.post("/foo",authorize([Role.Admin,Role.User]), ({ id, body }, res, next) => {
+app.post("/foo",authorize([Role.Admin]), ({ id, body }, res, next) => {
   const { bar } = body;
 
   if (typeof bar === "undefined") {
