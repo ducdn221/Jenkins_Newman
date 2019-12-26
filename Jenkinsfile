@@ -8,5 +8,6 @@ node {
     }
     stage('Run Tests') {
         bat 'npm run test-api-newman'
+        
     }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "test-api-newman": "newman run ./postman/collection.json -e ./postman/env.json --disable-unicode --export-environment ./postman/env.json -d ./postman/env-dev.json",
+    "test-api-newman": "newman run ./postman/collection.json -e ./postman/env.json --disable-unicode --export-environment ./postman/env.json -d ./postman/env-dev.json -r cli,junit,html,htmlextra --reporter-junit-export ./postman/reports/junit/result.xml --reporter-html-export ./postman/reports/html/index.html --reporter-htmlextra-export ./postman/reports/htmlextra/index.html",
     "test-api": "npm start & npm run test-api-newman"
   },
   "author": "",
