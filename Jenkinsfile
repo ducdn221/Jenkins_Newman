@@ -12,5 +12,5 @@ bat 'bundle exec rake build spec'
 
 // Archive the built artifacts
 archive (includes: 'pkg/*.gem')
-
+publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 }
