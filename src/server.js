@@ -3,9 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const addRequestId = require("express-request-id");
 const cors = require("cors");
-const errorHandler = require("_helpers/error-handler");
-const authorize = require("_helpers/authorize")
-const Role = require("_helpers/role");
+const errorHandler = require("./_helpers/error-handler");
+const authorize = require("./_helpers/authorize")
+const Role = require("./_helpers/role");
 
 const app = express();
 app.use(addRequestId());
