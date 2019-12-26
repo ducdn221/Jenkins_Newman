@@ -8,6 +8,7 @@
     "start": "node server.js",
     "test-api-newman": "newman run ./postman/collection.json -e ./postman/env.json --disable-unicode --export-environment ./postman/env.json -d ./postman/env-dev.json",
     "test-api": "npm start & npm run test-api-newman"
+    
   },
   "author": "",
   "license": "ISC",
