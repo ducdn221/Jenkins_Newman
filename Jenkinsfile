@@ -9,4 +9,5 @@ node {
     stage('Run Tests') {
         bat 'npm run test-api-newman'
     }
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'postman/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 }
