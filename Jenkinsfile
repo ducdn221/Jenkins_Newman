@@ -10,5 +10,6 @@ node {
         bat 'npm run test-api-newman'
     }
     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'postman/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'postman/reports/htmlextra', reportFiles: 'index.html', reportName: 'HTML Extra Report', reportTitles: ''])
     junit 'postman/reports/junit/result.xml'
 }
