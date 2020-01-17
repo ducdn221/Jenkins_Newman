@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="postman-newman-testing" tests="13" time="0.538">
+  <testsuite name="status-401 / /login fail" id="484e8007-5c8d-406a-9554-a8142bce1b44" timestamp="2019-12-31T07:01:46.627Z" tests="3" failures="0" errors="0" time="0.450">
+    <testcase name="should be a json response" time="0.450" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.450" classname="PostmanNewmanTesting"/>
+    <testcase name="should not be able to access username or password incorrect" time="0.450" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-401 / / status 401" id="5634749d-0692-40ca-99d1-93f8cf233104" timestamp="2019-12-31T07:01:46.627Z" tests="1" failures="0" errors="0" time="0.010">
+    <testcase name="should not be able to access other users locations" time="0.010" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-401 / /foo status 401" id="840cec73-7180-494a-891a-e97c9ec9c28e" timestamp="2019-12-31T07:01:46.627Z" tests="1" failures="0" errors="0" time="0.010">
+    <testcase name="should not be able to access other users locations" time="0.010" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-401 / /foo status 401" id="2fdbbc9c-873c-4782-be1a-5c9a2071f635" timestamp="2019-12-31T07:01:46.627Z" tests="1" failures="0" errors="0" time="0.009">
+    <testcase name="should not be able to access other users locations" time="0.009" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-403 / /login user" id="6131537f-4d93-4ead-aece-b9f9fe782c3c" timestamp="2019-12-31T07:01:46.627Z" tests="2" failures="0" errors="0" time="0.015">
+    <testcase name="should be a json response" time="0.015" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.015" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-403 / / status 403" id="6dbbbefc-4b67-43fb-86a2-f36b2730fac2" timestamp="2019-12-31T07:01:46.627Z" tests="1" failures="0" errors="0" time="0.004">
+    <testcase name="should not be able to access this resource" time="0.004" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-403 / /foo status 403" id="22864ac0-b60f-4799-84bc-2466766bbcdd" timestamp="2019-12-31T07:01:46.627Z" tests="1" failures="0" errors="0" time="0.004">
+    <testcase name="should not be able to access this resource" time="0.004" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-403 / /foo status 403" id="7d8b5602-1397-41d6-8d6e-e41ec5a6aaa6" timestamp="2019-12-31T07:01:46.627Z" tests="1" failures="0" errors="0" time="0.012">
+    <testcase name="should not be able to access this resource" time="0.012" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="status-400 / /login fail" id="bbefa74f-df2f-4228-8462-070b72cd1212" timestamp="2019-12-31T07:01:46.627Z" tests="3" failures="0" errors="0" time="0.003">
+    <testcase name="should be a json response" time="0.003" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.003" classname="PostmanNewmanTesting"/>
+    <testcase name="should not be able to access username or password incorrect" time="0.003" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="/login" id="982c92e5-d46c-40ce-b582-1308a8f006a8" timestamp="2019-12-31T07:01:46.627Z" tests="3" failures="0" errors="0" time="0.008">
+    <testcase name="should return a 200 response" time="0.008" classname="PostmanNewmanTesting"/>
+    <testcase name="should be a json response" time="0.008" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.008" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="/" id="af33ab3a-a70c-49fe-8d56-ab6007cc83dc" timestamp="2019-12-31T07:01:46.627Z" tests="3" failures="0" errors="0" time="0.003">
+    <testcase name="should return a 200 response" time="0.003" classname="PostmanNewmanTesting"/>
+    <testcase name="should be a json response" time="0.003" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.003" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="/foo" id="960e5400-11c9-4ff6-b00a-52b1af11f48c" timestamp="2019-12-31T07:01:46.627Z" tests="4" failures="0" errors="0" time="0.006">
+    <testcase name="should return a 200 response" time="0.006" classname="PostmanNewmanTesting"/>
+    <testcase name="should be a json response" time="0.006" classname="PostmanNewmanTesting"/>
+    <testcase name="response body to have field `message`" time="0.006" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.006" classname="PostmanNewmanTesting"/>
+  </testsuite>
+  <testsuite name="/foo" id="b7ab4c35-97f6-45ce-ae80-fe36b587927e" timestamp="2019-12-31T07:01:46.627Z" tests="3" failures="0" errors="0" time="0.004">
+    <testcase name="should return a 200 response" time="0.004" classname="PostmanNewmanTesting"/>
+    <testcase name="should be a json response" time="0.004" classname="PostmanNewmanTesting"/>
+    <testcase name="response to be fast" time="0.004" classname="PostmanNewmanTesting"/>
+  </testsuite>
+</testsuites>
